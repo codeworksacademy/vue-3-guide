@@ -1,201 +1,50 @@
-# An Intro to Javascript Proxy Objects
+# JSON Web Tokens (JWT)
 
-### Change the way you interact with Objects
+Tokens are an open, industry standard [RFC 7519](https://tools.ietf.org/html/rfc7519) method for representing claims securely between two parties. Signed tokens can verify the integrity of the claims contained within it, while encrypted tokens hide those claims from other parties. When tokens are signed using public/private key pairs, the signature also certifies that only the party holding the private key is the one that signed it.
 
-![Image for post](https://miro.medium.com/max/5472/1*Mmid3OPj9sZtMaLv0H3XWg.png)
+Tokens are generally comprised of three parts the `header`, `payload`, and `signature`. 
 
-> Proxies are Middleware for Javascript Objects
+##### Header
 
-... or at least that's sort of the tl;dr version for it.
+The header typically consists of two parts: the type of the token, and the algorithm used for signing the token, such as `HMAC` `SHA256` or `RSA`. The header is encoded with [`base64`](https://en.wikipedia.org/wiki/Base64)
 
-Proxies were introduced in ES6 to allow you to provide *custom* functionality to basic operations that can be performed on an `Object`. For example, `get` is a basic `Object` operation.
-```javascript
-const obj = {
-   val: 10
-};
-console.log(obj.val);
-```
-Here, the `console.log()` statement performs a `get` operation on the object `obj` to get the value of the key `val`.
-
-Another basic Object operation is `set`.
-```javascript
-const obj = {
-   val: 10
-};
-obj.val2 = 20;
-```
-Here, a `set` operation is performed to set a new key to the object `obj`.
-
-## How do I create a Proxy?
-```javascript
-const proxiedObject = new Proxy(initialObj, handler);
-```
-Calling the Proxy constructor, `new Proxy()`, will return an object that has the values contained in `initialObj` but whose basic operations like `get` and `set`, now have some custom logic specified by the `handler` object.
-
-Let's take an example to understand this,
-```javascript
-const handler = {
-  get: function() {
-    console.log('A value has been accessed');
-  }
+```json
+{
+  "alg": "HS256",
+  "typ": "JWT"
 }
-
-const initialObj = {
-  id: 1,
-  name: 'Foo Bar'
-}
-
-const proxiedObj = new Proxy(initialObj, handler);
-
-console.log(proxiedObj.name); 
-```
-Now, if we had not made a Proxy Object, calling `console.log(proxiedObj.name)` on Line 14 would've logged "*Foo Bar"* to the console.
-
-But now that we've made a Proxy, the `get` operation has some custom logic that we have defined on Line 3.
-
-Calling `console.log(proxiedObj.name)` will now actually log "*A value has been accessed"* to the console!
-
-![Image for post](https://miro.medium.com/max/934/1*qUIxgSBBJlaGaVdl1-wNjg.png)
-
-To the careful eye, you'd notice that there are actually two logs in the console. *"A value has been accessed"* and *undefined*. Why? 🤔
-
-The default implementation of the `get` operator is to return the value stored in that key in the Object. Since we overrode it to just log a statement, the value is never returned, and hence the `console.log()` statement on line14 logs `undefined`.
-
-Let's fix that!
-
-The `get` operator takes two parameters --- the object itself and the property being accessed.
-```javascript
-const handler = {
-  get: function(obj, prop) {
-    console.log('A value has been accessed');
-    return obj[prop]; // Return the value stored in the key being accessed
-  }
-}
-
-const initialObj = {
-  id: 1,
-  name: 'Foo Bar'
-}
-
-const proxiedObj = new Proxy(initialObj, handler);
-
-console.log(proxiedObj.name);
 ```
 
-![Image for post](https://miro.medium.com/max/932/1*1FmUg3gJ53VaLr4OH6T-qQ.png)
+##### Payload & Claims
+The second part of the token is the payload, which contains claims. Claims are statements about a user with some additional data. There are three types of claims: registered, public, and private claims.
 
-That's better! 😄
+- **Registered**
+    - These claims provide basic interoperable details such as a unique identify, the token issuer, and the intended audience of the token. 
+- **Public**
+    - Public claims need to be namespaced and usually include the domain of the application where they are used.
+        ```json
+        {
+            "https://blog.domain.com/profile": { "displayName": "Jimmy Tester" },
+            "https://game.domain.com/profile": { "displayName": "Jimmy117" },
+        }
+        ```
+- **Private**
+    - These claims are intended to convey information that is private and not user driven. These claims can include the users permissions for a particular application 
+        ```json
+        {
+            "https://blog.domain.com/permissions": ["create:blog", "edit:blog"],
+            "https://admin.domain.com/roles": ["moderator"],
+            "https://admin.domain.com/permissions": ["delete:comment"]
+        }
+        ```
 
-This custom override that we provided for `get` is called a `trap` (loosely based on the [concept of operating system traps](https://en.wikipedia.org/wiki/Trap_(computing))). The handler object is basically an object with a set of traps that would trigger whenever an object property is being accessed.
-
-Let's add a trap for `set` as well. We'll do the same thing --- any time a value is set, we'll log the property being modified, as well as the value being set for that key.
-
-The `set` operator takes three arguments --- the object, the property being accessed and the value being set for that property.
-```javascript
-const handler = {
-  get: function(obj, prop) {
-    console.log('A value has been accessed');
-    return obj[prop];
-  },
-  set: function(obj, prop, value) {
-    console.log(`${prop} is being set to ${value}`);
-  }
-}
-
-const initialObj = {
-  id: 1,
-  name: 'Foo Bar'
-}
-
-const proxiedObj = new Proxy(initialObj, handler);
-
-proxiedObj.age = 24
-```
-
-Here, the access being made at Line 18 will trigger the function defined at Line 6, which will log the property being accessed and the value being set.
+> **IMPORTANT** The data in signed tokens is only [`encoded`](https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/#:~:text=Encoding%20is%20for%20maintaining%20data,order%20to%20return%20to%20plaintext.), it is readable by anyone. Do not put secret information in the payload or header elements of a JWT unless it is [`encrypted`](https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/#:~:text=Encoding%20is%20for%20maintaining%20data,order%20to%20return%20to%20plaintext.).
 
 
-![Image for post](https://miro.medium.com/max/932/1*WRWfVh6M21gJ8DS2BUF7Yg.png)
+##### Signature
+The signature is used to verify the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is.
 
 
-## A Real-world Example
+### Identiy Access Management IAM
 
-Say we have an object that defines a person
-```javascript
-const person = {
-   id: 1,
-   name: 'Foo Bar'
-};
-```
-
-What if we want to make the `id` property of this object a *private* property. No one should be able to access this property via `person.id`, and if someone does, we need to throw an error. How would we do this?
-
-Proxies to the rescue! 🎉👩‍🚒
-
-All we need to do is create a Proxy of this object, and override the `get` operator to prevent us from accessing the `id` property!
-
-```javascript
-const handler = {
-  get: function(obj, prop) {
-    if (prop === 'id') { // Check if the id is being accessed
-      throw new Error('Cannot access private properties!'); // Throw an error
-    } else {
-      return obj[prop]; // If it's not the id property, return it as usual
-    }
-  }
-}
-
-const person = {
-  id: 1,
-  name: 'Foo Bar'
-}
-
-const proxiedPerson = new Proxy(person, handler);
-
-console.log(proxiedPerson.id);
-```
-
-Here, in the trap we've created for `get`, we check if the property being accessed is the `id` property, and if so, we throw an error. Otherwise, we return the value as usual.
-
-![Image for post](https://miro.medium.com/max/928/1*aV-wxEkYcSHcIY86HWxspw.png)
-
-Private Propeties --- Console Output
-
-Another neat use case for this is validations. By setting a `set` trap, we can add custom validation before we set the value. If the value does not conform to the validation, we can throw an error!
-
-```javascript
-const handler = {
-  set: function(obj, prop, value) {
-    if (typeof value !== 'string') {
-      throw new Error('Only string values can be stored in this object!');
-    } else {
-      obj[prop] = value;  
-    }
-  }
-}
-
-const obj = {};
-
-const proxiedObj = new Proxy(obj, handler);
-
-console.log(proxiedObj); // This will log an empty object 
-proxiedObj.name = 'Foo Bar'; // This should be allowed
-console.log(proxiedObj); // This will log an object with the name property set
-
-proxiedObj.age = 24; // This will throw an error.
-```
-
-
-![Image for post](https://miro.medium.com/max/934/1*g1ITszNQlXkt7EK6nDmWxQ.png)
-
-Custom Validation --- Console Output
-
-In the above examples, we've seen the `get` and the `set` traps. There are actually a lot more traps that can be set. You can find the [entire list here](https://docs.microsoft.com/en-us/scripting/javascript/reference/proxy-object-javascript).
-
-Proxy Objects only just came into my radar after going through [this article about them](https://davidwalsh.name/watch-object-changes?utm_source=blog.campvanilla.com), and I can already see the usefulness of them in the code I write everyday!]
-
-<br>
-<br>
-<hr>
-<small>Seelan, Abinav. “An Intro to Javascript Proxy Objects.” Medium, Campvanilla, 23 Dec. 2017, blog.campvanilla.com/advanced-guide-javascript-proxy-objects-introduction-301c0fce9432. </small>
-<br>
+Auth0 makes it simple to exchange `JWT` and allows managers to easily adjust user claims through its interface. Admins can also track and monitor how users move through their applications and expire sessions with suspecious activity.
