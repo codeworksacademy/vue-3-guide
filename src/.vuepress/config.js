@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = {
-  base: "/",
+  base: "/vue-3-guide/",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
