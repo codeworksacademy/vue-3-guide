@@ -1,0 +1,22 @@
+{
+  "name": "codeworks-download-v3-auth0",
+  "version": "0.0.1",
+  "description": "Resource for Codeworks Download",
+  "main": "index.js",
+  "authors": {
+    "name": "Codeworks",
+    "email": "Instructors@boisecodeworks.com"
+  },
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "@vuepress/plugin-back-to-top": "^1.7.1",
+    "@vuepress/plugin-medium-zoom": "^1.7.1"
+  }
+}
