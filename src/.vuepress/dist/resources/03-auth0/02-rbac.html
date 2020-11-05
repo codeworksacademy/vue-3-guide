@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Role-based access control | Codeworks Download</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="Learn Vue 3 with Auth0">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/vue-3-guide/assets/css/0.styles.402978c3.css" as="style"><link rel="preload" href="/vue-3-guide/assets/js/app.c3cc525f.js" as="script"><link rel="preload" href="/vue-3-guide/assets/js/2.e4a55888.js" as="script"><link rel="preload" href="/vue-3-guide/assets/js/22.646bfa80.js" as="script"><link rel="prefetch" href="/vue-3-guide/assets/js/10.f561313e.js"><link rel="prefetch" href="/vue-3-guide/assets/js/11.dc23e339.js"><link rel="prefetch" href="/vue-3-guide/assets/js/12.8cbdf541.js"><link rel="prefetch" href="/vue-3-guide/assets/js/13.9bda1413.js"><link rel="prefetch" href="/vue-3-guide/assets/js/14.455eaa3b.js"><link rel="prefetch" href="/vue-3-guide/assets/js/15.9f05731e.js"><link rel="prefetch" href="/vue-3-guide/assets/js/16.c0066d90.js"><link rel="prefetch" href="/vue-3-guide/assets/js/17.4c10ba8a.js"><link rel="prefetch" href="/vue-3-guide/assets/js/18.5e5b414e.js"><link rel="prefetch" href="/vue-3-guide/assets/js/19.ce4077f6.js"><link rel="prefetch" href="/vue-3-guide/assets/js/20.76962e46.js"><link rel="prefetch" href="/vue-3-guide/assets/js/21.43119e6b.js"><link rel="prefetch" href="/vue-3-guide/assets/js/23.e7e7d394.js"><link rel="prefetch" href="/vue-3-guide/assets/js/24.acd328c8.js"><link rel="prefetch" href="/vue-3-guide/assets/js/25.73c27769.js"><link rel="prefetch" href="/vue-3-guide/assets/js/26.38613219.js"><link rel="prefetch" href="/vue-3-guide/assets/js/27.de51c7a2.js"><link rel="prefetch" href="/vue-3-guide/assets/js/3.afbebffa.js"><link rel="prefetch" href="/vue-3-guide/assets/js/4.1e2ac6e1.js"><link rel="prefetch" href="/vue-3-guide/assets/js/5.316a221f.js"><link rel="prefetch" href="/vue-3-guide/assets/js/6.5b27e46d.js"><link rel="prefetch" href="/vue-3-guide/assets/js/7.9c51d60b.js"><link rel="prefetch" href="/vue-3-guide/assets/js/8.9624a605.js"><link rel="prefetch" href="/vue-3-guide/assets/js/9.e7ab579b.js">
+    <link rel="stylesheet" href="/vue-3-guide/assets/css/0.styles.402978c3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-3-guide/" class="home-link router-link-active"><!----> <span class="site-name">Codeworks Download</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-3-guide/resources/" class="nav-link router-link-active">
+  Resources
+</a></div><div class="nav-item"><a href="https://boisecodeworks.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Codeworks
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-3-guide/resources/" class="nav-link router-link-active">
+  Resources
+</a></div><div class="nav-item"><a href="https://boisecodeworks.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Codeworks
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Getting Started</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue 3 Breaking Changes</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue 3 Whats New?</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Auth0 Identity</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-3-guide/resources/03-auth0/01-identity.html" class="sidebar-link">Identity and access management</a></li><li><a href="/vue-3-guide/resources/03-auth0/02-rbac.html" aria-current="page" class="active sidebar-link">Role-based access control</a></li><li><a href="/vue-3-guide/resources/03-auth0/03-tokens.html" class="sidebar-link">JSON Web Tokens (JWT)</a></li><li><a href="/vue-3-guide/resources/03-auth0/04-meta-data.html" class="sidebar-link">An Intro to Javascript Proxy Objects</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Demo</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="role-based-access-control"><a href="#role-based-access-control" class="header-anchor">#</a> Role-based access control</h1></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue-3-guide/resources/03-auth0/01-identity.html" class="prev">
+        Identity and access management
+      </a></span> <span class="next"><a href="/vue-3-guide/resources/03-auth0/03-tokens.html">
+        JSON Web Tokens (JWT)
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/vue-3-guide/assets/js/app.c3cc525f.js" defer></script><script src="/vue-3-guide/assets/js/2.e4a55888.js" defer></script><script src="/vue-3-guide/assets/js/22.646bfa80.js" defer></script>
+  </body>
+</html>
