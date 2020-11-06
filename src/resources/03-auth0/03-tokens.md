@@ -4,7 +4,7 @@ Tokens are an open, industry standard [RFC 7519](https://tools.ietf.org/html/rfc
 
 Tokens are generally comprised of three parts the `header`, `payload`, and `signature`. 
 
-##### Header
+## Header
 
 The header typically consists of two parts: the type of the token, and the algorithm used for signing the token, such as `HMAC` `SHA256` or `RSA`. The header is encoded with [`base64`](https://en.wikipedia.org/wiki/Base64)
 
@@ -15,7 +15,7 @@ The header typically consists of two parts: the type of the token, and the algor
 }
 ```
 
-##### Payload & Claims
+## Payload & Claims
 The second part of the token is the payload, which contains claims. Claims are statements about a user with some additional data. There are three types of claims: registered, public, and private claims.
 
 - **Registered**
@@ -41,10 +41,10 @@ The second part of the token is the payload, which contains claims. Claims are s
 > **IMPORTANT** The data in signed tokens is only [`encoded`](https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/#:~:text=Encoding%20is%20for%20maintaining%20data,order%20to%20return%20to%20plaintext.), it is readable by anyone. Do not put secret information in the payload or header elements of a JWT unless it is [`encrypted`](https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/#:~:text=Encoding%20is%20for%20maintaining%20data,order%20to%20return%20to%20plaintext.).
 
 
-##### Signature
+## Signature
 The signature is used to verify the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is.
 
 
-### Identiy Access Management IAM
+## Identiy Access Management IAM
 
 Auth0 makes it simple to exchange `JWT` and allows managers to easily adjust user claims through its interface. Admins can also track and monitor how users move through their applications and expire sessions with suspecious activity.

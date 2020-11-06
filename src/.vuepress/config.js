@@ -68,7 +68,6 @@ module.exports = config({
    */
   plugins: [
     '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
     '@vuepress/nprogress',
     "@vuepress/plugin-blog",
     ["@mr-hope/sitemap",{ hostname: 'https://codeworksacademy.github.io/vue-3-guide' }],

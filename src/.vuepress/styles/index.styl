@@ -9,10 +9,11 @@
 html
   scroll-behavior smooth
   -webkit-font-smoothing antialiased
+  font-family charter, Georgia, Cambria, "Times New Roman", Times, serif
   .content__default
-    a, p
+    a, p, ul
+      font-size 20px
       font-family charter, Georgia, Cambria, "Times New Roman", Times, serif
-      font-size 21px
       font-weight 500
 
 
@@ -28,8 +29,10 @@ html
 .home .hero img
   max-width 80vw !important
 
-img[alt=small]  
-  width 200px
+img
+  cursor pointer
+  &[alt=small]  
+    width 200px
 
 .action-button
   display inline-block
@@ -46,6 +49,12 @@ img[alt=small]
     background-color var(--accent-color-l10)
     text-decoration none !important
   
+blockquote 
+  border-left-color var(--accent-color-l10)
+  color var(--accent-color-l10)
+
+.go-to-top
+  color var(--accent-color-l10)!important
 
 
 .m-1
