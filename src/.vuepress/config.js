@@ -60,7 +60,8 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-    '@vuepress/nprogress'
+    '@vuepress/nprogress',
+    ['vuepress-plugin-code-copy', {color: '#ff2aa7', backgroundColor: '#ff2aa7'}]
   ]
 }
 
