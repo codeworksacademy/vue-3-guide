@@ -1,7 +1,8 @@
 const fs = require("fs");
 const path = require("path");
+const { config } = require("vuepress-theme-hope");
 
-module.exports = {
+module.exports = config({
   base: "/vue-3-guide/",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
@@ -29,9 +30,17 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
+    logo: 'https://bcw.blob.core.windows.net/public/downloads/7963870079450366',
+    darkLogo: 'https://bcw.blob.core.windows.net/public/downloads/3472546449277889',
     editLinks: false,
-    editLinkText: '',
-    lastUpdated: false,
+    themeColor: {
+      blue: "#2196f3",
+      red: "#f26d6d",
+      green: "#00ffdc",
+      orange: "#fb9b5f",
+      purple: "#8e44ad",
+      banana: "#ffe135"
+    },
     nav: [
       {
         text: 'Resources',
@@ -61,9 +70,10 @@ module.exports = {
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
     '@vuepress/nprogress',
-    ['vuepress-plugin-code-copy', {color: '#ff2aa7', backgroundColor: '#ff2aa7'}]
+    "@vuepress/plugin-blog",
+    ["@mr-hope/sitemap",{ hostname: 'https://codeworksacademy.github.io/vue-3-guide' }],
   ]
-}
+})
 
 function getSideBar(folder, title) {
   const extension = [".md"];

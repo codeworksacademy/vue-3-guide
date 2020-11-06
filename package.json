@@ -13,10 +13,13 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.5.3"
+    "@mr-hope/vuepress-plugin-sitemap": "^1.4.7",
+    "vuepress": "^1.5.3",
+    "vuepress-theme-hope": "^1.4.7"
   },
   "dependencies": {
     "@vuepress/plugin-back-to-top": "^1.7.1",
+    "@vuepress/plugin-blog": "^1.9.3",
     "@vuepress/plugin-medium-zoom": "^1.7.1",
     "vuepress-plugin-code-copy": "^1.0.6"
   }

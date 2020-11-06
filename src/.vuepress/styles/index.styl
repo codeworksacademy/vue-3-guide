@@ -3,6 +3,26 @@
  *
  * ref：https://v1.vuepress.vuejs.org/config/#index-styl
  */
+@import "//at.alicdn.com/t/font_1446717_giwlq66d28j.css"
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
+
+html
+  scroll-behavior smooth
+  -webkit-font-smoothing antialiased
+  .content__default
+    a, p
+      font-family charter, Georgia, Cambria, "Times New Roman", Times, serif
+      font-size 21px
+      font-weight 500
+
+
+.navbar 
+  display: flex;
+  align-items: center;
+  .site-name
+    display none
+  .logo
+    height 55px !important
 
 
 .home .hero img
@@ -17,14 +37,15 @@ img[alt=small]
   cursor pointer
   font-size 1.2rem
   color #fff
-  background-color $accentColor
+  background-color var(--accent-color)
   padding 0.8rem 1.6rem
   border-radius 4px
   transition background-color .1s ease
   box-sizing border-box
-  border-bottom 1px solid darken($accentColor, 10%)
   &:hover
-    background-color lighten($accentColor, 10%)
+    background-color var(--accent-color-l10)
+    text-decoration none !important
+  
 
 
 .m-1

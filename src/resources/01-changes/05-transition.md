@@ -33,7 +33,7 @@ __transitions.scss vue-3__
 }
 ```
 ### Transition Use
-```html
+```jsx
 <Transition name="fade">
     <div v-if="someControl"></div>
 </Transition>
