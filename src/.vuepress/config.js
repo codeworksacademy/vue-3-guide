@@ -33,6 +33,8 @@ module.exports = config({
     logo: 'https://bcw.blob.core.windows.net/public/downloads/7963870079450366',
     darkLogo: 'https://bcw.blob.core.windows.net/public/downloads/3472546449277889',
     editLinks: true,
+    docsDir: 'src',
+    docsBranch: 'main',
     repo: 'codeworksacademy/vue-3-guide',
     repoLabel: 'Contribute!',
     themeColor: {
