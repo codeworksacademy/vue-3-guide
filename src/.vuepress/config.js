@@ -32,7 +32,9 @@ module.exports = config({
   themeConfig: {
     logo: 'https://bcw.blob.core.windows.net/public/downloads/7963870079450366',
     darkLogo: 'https://bcw.blob.core.windows.net/public/downloads/3472546449277889',
-    editLinks: false,
+    editLinks: true,
+    repo: 'codeworksacademy/vue-3-guide',
+    repoLabel: 'Contribute!',
     themeColor: {
       blue: "#2196f3",
       red: "#f26d6d",
