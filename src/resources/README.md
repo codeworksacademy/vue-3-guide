@@ -80,6 +80,6 @@ __VSCode Settings__
 }
 ```
 
-### Phased Release Process
+## Phased Release Process
 ![phased-release](../assets/img/phased-release.png)
 > Goal: Switch all branches to Vue 3 by the end of 2020

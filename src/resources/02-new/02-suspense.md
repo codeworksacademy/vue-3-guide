@@ -50,7 +50,7 @@ export default {
 }
 ```
 
-### Using Suspense
+## Using Suspense
 
 ``` jsx
 <template>

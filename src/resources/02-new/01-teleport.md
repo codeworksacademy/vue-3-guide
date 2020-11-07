@@ -6,7 +6,7 @@ Teleport was designed to facilitate moving content and components out of their i
 
 Although react uses portals this component should not be confused with HTML's new native [`portal`](https://web.dev/hands-on-portals/) element. Likely react will end up changing the portal component name due to this conflict.
 
-### Common Teleport Use Case
+## Common Teleport Use Case
 - Modals
   - Resolves all the odd z-idex and clickjacking issues
 - Toast Notifications
@@ -15,5 +15,5 @@ Although react uses portals this component should not be confused with HTML's ne
 - Floating Menus
 - Games???
 
-### Teleport Example
+## Teleport Example
 [Source](https://github.com/codeworksacademy/v3-demos/blob/main/src/pages/PortalsDemo.vue)
