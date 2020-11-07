@@ -6,7 +6,7 @@
   </div>
 
   <p class="action">
-    <a class="nav-link action-button" href="/resources">Getting Started →</a>
+    <a class="nav-link action-button" href="/vue-3-guide/resources">Getting Started →</a>
   </p>
 </header>
 
