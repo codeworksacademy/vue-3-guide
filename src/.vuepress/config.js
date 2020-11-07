@@ -7,7 +7,7 @@ module.exports = config({
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Codeworks Download',
+  title: 'CodeWorks Download',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -49,7 +49,7 @@ module.exports = config({
         link: '/resources/',
       },
       {
-        text: 'Codeworks',
+        text: 'CodeWorks',
         link: 'https://boisecodeworks.com'
       }
     ],
