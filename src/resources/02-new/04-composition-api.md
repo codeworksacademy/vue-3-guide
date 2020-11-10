@@ -10,13 +10,13 @@ Here there be 🐲dragons🐉
 
 The composition api provides some nice features but remember to `KISS` if you are migrating from vue 2 to vue 3 make the minimal amount of change as possible first... Then see if the composition api can help when refactoring components...
 
-The true benefit of the composition API from an application standpoint is being more expressive and functional in writting your components. An issue presented by Vue's Options Api is breaking the natural `this` context of standard JavaScript. Although the Options Api resolves an invalid this context there the code itself is unclear without this understanding...
+The true benefit of the composition API from an application standpoint is being more expressive and functional in writing your components. An issue presented by Vue's Options API is breaking the natural `this` context of standard JavaScript. Although the Options API resolves an invalid this context there the code itself is unclear without this understanding...
 
-Out of all the newest features in the composition API we are going to focus on the ones that will demand the most of your attention. Namely `ref`  `reactive` and `computed`
+Out of all the newest features in the composition API we are going to focus on the ones that will demand the most of your attention. Namely `ref`,  `reactive`, and `computed`.
 
 ## ref
 
-Of the three new methods this one is perhaps the most confusing and actually serves a double purpose. To over simplyfy wrapping an object in a `ref` call makes that object become an `observable` doing this allows vue 3 to tie into its updates when using the ref inside of a computed or reactive object. To get the data stored in a ref object you will have to use the `.value` property  
+Of the three new methods this one is perhaps the most confusing and actually serves a double purpose. To over simplify, wrapping an object in a `ref` call makes that object become an `observable`. Doing this allows vue 3 to tie into its updates when using the `ref` inside of a computed or reactive object. To get the data stored in a `ref` object you will have to use the `.value` property.  
 
 ``` vue
 <script setup>
@@ -29,7 +29,7 @@ const windowWidth = ref(window.innerWidth)
 window.addEventListener('resize', () => { windowWidth.value = window.innerWidth })
 
 export const UTILS = reactive({
-            // 3. whenever the observable changes the computed is triggered
+// 3. whenever the observable changes the computed is triggered
   isMobile: computed(() => windowWidth.value < 600)
 })
 // 4. when a computed is fired in a reactive object it can cause a DOM Node to render
@@ -76,13 +76,13 @@ export default {
 </script>
 ```
 
-If you are wondering about dynamic `$refs` I would first recommend abstracting the problem to a lower component to avoid the need however it is possible and you can read about it [here](https://markus.oberlehner.net/blog/refs-and-the-vue-3-composition-api/)
+If you are wondering about dynamic `$refs` I would first recommend abstracting the problem to a lower component to avoid the need. However, it is possible and you can read about it [here](https://markus.oberlehner.net/blog/refs-and-the-vue-3-composition-api/).
 
 ## reactive
 
-To keep this simple think of reactive as a more memory expensive version of `ref` but it works more like you would expect it to with less hassle. While there are some key differences especially in performance between `reactive` and `ref` each of them have their purpose and that is an interest best reserved to the vue docs. 
+To keep this simple, think of reactive as a more memory expensive version of `ref` but it works more like you would expect it to with less hassle. While there are some key differences especially in performance between `reactive` and `ref` each of them have their purpose and that is an interest best reserved to the vue docs. 
 
-Here Ill show how we use `reactive` like the data field with the options api
+Here I'll show how we use `reactive` like the data field with the Options API.
 
 > 💡 DO NOT DESTRUCTURE... it will break the reactivity
 
@@ -119,9 +119,9 @@ export default {
 
 ## computed
 
-Computed work just like they did in the options api for watching data changes. The key difference is we now see how our computed methods are wrapped in a callback and are triggered based upon the item being observed changing
+Computeds work just like they did in the Options API for watching data changes. The key difference is we now see how our computed methods are wrapped in a callback and are triggered based upon the item being observed changing.
 
-computed takes in a named or anonymous function which must return a value
+A computed takes in a named or anonymous function which must return a value.
 
 ```vue
 <script setup>
