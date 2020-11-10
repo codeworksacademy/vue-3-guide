@@ -1,8 +1,8 @@
 # Setup Simplified
 
-With the new composition api the setup method provides a more functional approach to writing components, despite this setup is not actually necessary as the options api is still 100% compatable with vue 3.
+With the new composition api the setup method provides a more functional approach to writing components, despite this, setup is not actually necessary as the options api is still 100% compatible with vue 3.
 
-Each of these sections all accomplish the same thing. It is pretty much syntatic sugar so pick the style you like best.
+Each of these sections all accomplish the same thing. It is pretty much syntactic sugar so pick the style you like best.
 
 __Options API__
 
