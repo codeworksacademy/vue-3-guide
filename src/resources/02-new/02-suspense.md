@@ -1,8 +1,8 @@
 # Suspense Component
 
-The new Suspense component is still in experimental phase. Suspense is designed to provide a conditional template based upon an `asyc` process. 
+The new Suspense component is still in experimental phase. Suspense is designed to provide a conditional template based upon an `async` process. 
 
-Suspense pulls its inspiration from the common comunity `VAsync Component`
+Suspense pulls its inspiration from the common community `VAsync Component`
 
 __VAsync.vue__
 
