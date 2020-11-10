@@ -1,5 +1,10 @@
 # Start a Project
 
+
+[![img](http://img.youtube.com/vi/9fpLYjMkXik/0.jpg)](https://www.youtube.com/watch?v=9fpLYjMkXik)
+
+
+
 To get started with our prebaked heavily opinonated template run the following commands
 
 * `npm i -g bcw` - skip if you already have it
