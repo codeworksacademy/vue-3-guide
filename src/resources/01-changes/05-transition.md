@@ -2,7 +2,7 @@
 
 This one is simple though I don't have any good explanation for why the core team decided to make this change... I find it simply frustrating... 
 
-Transitions work off of simple CSS classes and follow a paticular three part naming convention. The Vue `Transition` component and router handle adding and removing the appropriate classes so there is not much to change here.
+Transitions work off of simple CSS classes and follow a particular three part naming convention. The Vue `Transition` component and router handle adding and removing the appropriate classes so there is not much to change here.
 
 ``` css
 .basename-action-motion
@@ -48,7 +48,7 @@ __transitions.scss vue-3__
 
 ## Router Transitions
 
-Due to some changes with the router we can no longer wrap `RouterView` in a `Transition` component. This syntax has change as below. 
+Due to some changes with the router we can no longer wrap `RouterView` in a `Transition` component. This syntax has changed as below. 
 
 __router transtion vue 2__
 
