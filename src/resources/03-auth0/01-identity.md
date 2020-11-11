@@ -6,7 +6,7 @@
 
 ## What is Auth0
 
-Auth0 is an Identity Access Management platform which provides simplified control of user roles and permissions. Auth0 provides superior security, and services such as Single Sign On (SSO), OAuth Social Login, and username and password authentication. Each authentication workflow allows advanced features such as Multi Factor Authentication `MFA` during login. With Auth0 users can authenticate once and maintain their Identity through many applications utilizing the same Auth0 service.
+Auth0 is an Identity Access Management platform which provides simplified control of user roles and permissions. Auth0 provides superior security, and services such as Single Sign On (SSO), OAuth Social Login, and username and password authentication. Each authentication workflow allows advanced features such as Multi-Factor Authentication `MFA` during login. With Auth0 users can authenticate once and maintain their Identity through many applications utilizing the same Auth0 service.
 
 ## Learning Videos
 - [Getting Started](https://auth0.com/docs/videos/get-started-series)
